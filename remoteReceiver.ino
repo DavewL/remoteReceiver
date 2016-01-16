@@ -6,7 +6,7 @@
 
 /****************** User Config ***************************/
 /***      Set this radio as radio number 0 or 1         ***/
-bool radioNumber = 0;
+bool radioNumber = 1;
 unsigned long loopCounter = 0;
 bool flash = 0;
 
@@ -45,6 +45,10 @@ void loop() {
       {                                   
         radio.read( &axes, (2*sizeof(byte)) );             // Get the payload
       }
+      Serial.print("X");
+      Serial.print(axes[0]);
+      Serial.print("Y");
+      Serial.println(axes[1]);
      
    radio.stopListening();                                        // First, stop listening so we can talk   
    radio.write( &axes, (2*sizeof(byte)) );                       // Send the final one back.      
